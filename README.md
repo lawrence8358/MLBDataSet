@@ -151,13 +151,10 @@ result
 
 ### 檢查投手數據缺失值
 ``` python
-import pandas as pd
-pd.set_option('display.max_columns', None)
+# 顯示投手具有缺失值的欄位
+print(df_pitching.columns[df_pitching.isnull().any()])
 
-# 讀取投手數據
-df_pitching = pd.read_csv('https://raw.githubusercontent.com/lawrence8358/MLBDataSet/main/data/pitching.csv')
-
-# 王建民的數據
-result = df_pitching[df_pitching['playerID'] == 'wangch01']
-result
+# 找出投手具有缺失值的資料列
+rows_with_missing_values = df_pitching[df_pitching.isnull().any(axis=1)]
+rows_with_missing_values 
 ```
